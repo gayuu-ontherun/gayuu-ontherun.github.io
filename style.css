@@ -1,0 +1,1028 @@
+/* =========================================================
+   Mobile-first styles
+   Base rules target phones (360px – 430px wide) with a single
+   vertical column. Larger screens are enhanced with min-width
+   media queries at the bottom of the file.
+   ========================================================= */
+
+:root {
+  /* Palette matched to zostel.com: near-black + coral on white/light grey */
+  --primary: #111111;
+  --primary-dark: #111111;
+  --accent: #f1563f;
+  --accent-dark: #d9432d;
+  --bg: #ffffff;
+  --bg-alt: #f2f2f2;
+  --text: #111111;
+  --muted: #6b6b6b;
+  --border: #e0e0e0;
+  --nav-h: 60px;
+  --gutter: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 8px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem var(--gutter);
+}
+
+.section-alt {
+  background: var(--bg-alt);
+}
+
+h2 {
+  font-size: 1.6rem;
+  line-height: 1.3;
+  text-align: center;
+  margin: 0 0 1.5rem;
+  color: var(--primary-dark);
+}
+
+.center {
+  text-align: center;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gutter);
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-toggle {
+  width: 44px;
+  height: 44px;
+  margin-right: -0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--primary-dark);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* Mobile menu: a full-width drop-down panel under the bar */
+.nav-links {
+  display: none;
+  position: absolute;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  background: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navbar.nav-open .nav-links {
+  display: block;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.85rem var(--gutter);
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav-links a:active,
+.nav-links a:hover {
+  color: var(--accent);
+  background: var(--bg-alt);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.7rem 1.5rem;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* ---------- Hero: title + tilted photo strip ---------- */
+.hero {
+  text-align: center;
+  padding: 2.25rem 0 1.5rem;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.hero-content {
+  padding: 0 var(--gutter);
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--primary-dark);
+  margin: 0 0 0.6rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+}
+
+.photo-strip {
+  --card-w: 170px;
+  --fade-w: 32px;
+  position: relative;
+  margin-top: 1.75rem;
+  padding: 1.25rem 0;
+  overflow: hidden;
+}
+
+/* White fades on both edges so cards appear and disappear softly */
+.photo-strip::before,
+.photo-strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--fade-w);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.photo-strip::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg), transparent);
+}
+
+.photo-strip::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg), transparent);
+}
+
+.strip-track {
+  display: flex;
+  width: max-content;
+}
+
+/* Animation starts only after the script has repeated the photos; it sets --shift and the duration */
+.strip-track.is-ready {
+  animation: stripScroll 45s linear infinite;
+}
+
+.photo-strip:hover .strip-track {
+  animation-play-state: paused;
+}
+
+@keyframes stripScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(var(--shift)); }
+}
+
+.strip-card {
+  flex: 0 0 auto;
+  width: var(--card-w);
+  aspect-ratio: 3 / 4;
+  margin: 0 2px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.strip-card:hover {
+  transform: rotate(0deg) scale(1.05);
+  z-index: 1;
+}
+
+.strip-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Slightly different tilt for each card */
+.strip-card:nth-child(6n + 1) { --tilt: 1.1deg; }
+.strip-card:nth-child(6n + 2) { --tilt: -2deg; }
+.strip-card:nth-child(6n + 3) { --tilt: 2.5deg; }
+.strip-card:nth-child(6n + 4) { --tilt: -3.5deg; }
+.strip-card:nth-child(6n + 5) { --tilt: 0.4deg; }
+.strip-card:nth-child(6n + 6) { --tilt: -1.7deg; }
+
+/* ---------- About ---------- */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.about h2 {
+  margin-bottom: 1rem;
+}
+
+.about > div {
+  width: 100%;
+}
+
+.about p {
+  line-height: 1.75;
+  margin: 0 0 1rem;
+}
+
+.profile-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--bg-alt);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.stats span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ---------- Upcoming trips ---------- */
+.container-wide {
+  max-width: 1280px;
+}
+
+.trip-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.trip-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+.trip-media {
+  position: relative;
+  height: 220px;
+}
+
+.trip-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trip-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #dcfce7;
+  color: #166534;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.trip-badge.sold-out {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.trip-body {
+  padding: 1.25rem var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.trip-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.trip-header h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+.trip-route {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.trip-route i {
+  color: var(--accent);
+  margin-right: 0.3rem;
+}
+
+.trip-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.trip-price small {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
+
+.trip-facts {
+  list-style: none;
+  margin: 0;
+  padding: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 0.9rem 0.75rem;
+  background: var(--bg-alt);
+  border-radius: 12px;
+}
+
+.trip-facts li {
+  display: grid;
+  grid-template-columns: 1.4rem 1fr;
+  column-gap: 0.4rem;
+  align-items: center;
+  min-width: 0;
+}
+
+.trip-facts i {
+  grid-row: span 2;
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.trip-facts span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.trip-facts strong {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.trip-desc {
+  margin: 0;
+}
+
+/* Highlights, Included and Not included are stacked one below the other */
+.trip-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-details > div {
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.trip-details > div:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.trip-details > div:last-child {
+  padding-bottom: 0;
+}
+
+.trip-details h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.trip-details h4 i {
+  color: var(--accent);
+  margin-right: 0.3rem;
+}
+
+.trip-details ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.93rem;
+}
+
+.trip-details li {
+  margin-bottom: 0.35rem;
+}
+
+.list-check,
+.list-cross {
+  list-style: none;
+  padding-left: 0 !important;
+}
+
+.list-check li,
+.list-cross li {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.list-check li::before,
+.list-cross li::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.list-check li::before {
+  content: '\f00c';
+  color: #16a34a;
+}
+
+.list-cross li::before {
+  content: '\f00d';
+  color: #dc2626;
+}
+
+.itinerary {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.itinerary summary {
+  cursor: pointer;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  list-style: none;
+}
+
+.itinerary summary::-webkit-details-marker {
+  display: none;
+}
+
+.itinerary summary::before {
+  content: '\f078';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 0.8rem;
+  margin-right: 0.6rem;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.itinerary[open] summary::before {
+  transform: rotate(180deg);
+}
+
+.itinerary ol {
+  list-style: none;
+  margin: 0;
+  padding: 0 1rem 1rem;
+  font-size: 0.93rem;
+}
+
+.itinerary li {
+  padding: 0.5rem 0;
+  border-top: 1px dashed var(--border);
+}
+
+.itinerary li strong {
+  color: var(--accent);
+}
+
+/* Full-width stacked buttons are easier to tap on phones */
+.trip-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.trip-actions .btn {
+  width: 100%;
+}
+
+/* ---------- How to book ---------- */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+/* On phones each step is a compact row: icon on the left, text on the right */
+.step {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  column-gap: 1rem;
+  align-items: center;
+  background: var(--bg-alt);
+  padding: 1rem;
+  border-radius: 14px;
+}
+
+.step-icon {
+  grid-row: span 2;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.step h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.step p {
+  margin: 0.15rem 0 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.policy {
+  background: var(--bg-alt);
+  border-left: 4px solid var(--accent);
+  padding: 1rem 1.1rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+}
+
+.policy h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.policy ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.93rem;
+}
+
+.policy li {
+  margin-bottom: 0.35rem;
+}
+
+.center .btn {
+  width: 100%;
+}
+
+/* ---------- FAQs ---------- */
+.faq-container {
+  max-width: 820px;
+}
+
+.faq-list details {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  list-style: none;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0.9rem 3rem 0.9rem 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary::after {
+  content: '+';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--accent);
+  transition: transform 0.25s;
+}
+
+.faq-list details[open] summary {
+  color: var(--primary);
+}
+
+.faq-list details[open] summary::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.faq-list details p {
+  margin: 0;
+  padding: 0 1rem 1.1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  animation: faqOpen 0.25s ease;
+}
+
+@keyframes faqOpen {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Testimonials ---------- */
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+blockquote {
+  margin: 0;
+  padding: 1.25rem;
+  background: var(--bg-alt);
+  border-radius: 14px;
+  font-style: italic;
+}
+
+cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ---------- Footer / contact ---------- */
+footer {
+  background: var(--primary-dark);
+  color: white;
+  text-align: center;
+  padding: 2.5rem var(--gutter) 1.5rem;
+}
+
+footer h2 {
+  color: white;
+  margin-bottom: 1.2rem;
+}
+
+.contact-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.social {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  color: var(--primary-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.social:hover {
+  background: var(--accent);
+  color: white;
+  transform: scale(1.1);
+}
+
+.copyright {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* =========================================================
+   Tablet (600px and up)
+   ========================================================= */
+@media (min-width: 600px) {
+  :root {
+    --gutter: 1.5rem;
+  }
+
+  .container {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero {
+    padding: 3rem 0 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+  }
+
+  .photo-strip {
+    --card-w: 220px;
+    --fade-w: 96px;
+  }
+
+  .profile-img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .stats {
+    font-size: 0.95rem;
+  }
+
+  .stats span {
+    font-size: 1.8rem;
+  }
+
+  .trip-media {
+    height: 300px;
+  }
+
+  .trip-body {
+    padding: 1.5rem;
+  }
+
+  .trip-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .trip-price {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .trip-facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .trip-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .trip-actions .btn,
+  .center .btn {
+    width: auto;
+  }
+}
+
+/* =========================================================
+   Desktop (960px and up)
+   ========================================================= */
+@media (min-width: 960px) {
+  :root {
+    --nav-h: 64px;
+  }
+
+  .navbar {
+    padding: 0 1.5rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    position: static;
+    gap: 1.5rem;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .nav-links a {
+    padding: 0.25rem 0;
+  }
+
+  .nav-links a:hover {
+    background: transparent;
+  }
+
+  .hero {
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  .hero h1 {
+    font-size: 3.6rem;
+  }
+
+  .photo-strip {
+    --card-w: 288px;
+    --fade-w: 256px;
+    margin-top: 2.5rem;
+  }
+
+  .about {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3.5rem;
+    align-items: start;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .about h2 {
+    text-align: left;
+  }
+
+  .about p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .profile-img {
+    position: sticky;
+    top: 100px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .stats {
+    display: flex;
+    gap: 2.5rem;
+    text-align: left;
+  }
+
+  .trip-card {
+    display: grid;
+    grid-template-columns: minmax(280px, 38%) 1fr;
+  }
+
+  .trip-media {
+    height: auto;
+    min-height: 320px;
+  }
+
+  .trip-body {
+    padding: 1.75rem 2rem;
+  }
+
+  .trip-header h3 {
+    font-size: 1.6rem;
+  }
+
+  .trip-price {
+    font-size: 1.7rem;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .step {
+    display: block;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .step-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 0.8rem;
+    font-size: 1.5rem;
+  }
+
+  .step p {
+    margin-top: 0.4rem;
+  }
+
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  footer {
+    padding-top: 3rem;
+  }
+}
+
+/* ---------- Motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .strip-track.is-ready {
+    animation: none;
+  }
+}

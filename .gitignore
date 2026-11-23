@@ -1,0 +1,5 @@
+# Internal tooling files - not part of the website
+.github/
+
+# macOS
+.DS_Store

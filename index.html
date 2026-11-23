@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gayu's Guidebook | Curated Group Trips</title>
+  <meta name="description" content="Small-group trips hosted by Gayu — mountains, beaches, and hidden gems." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#home" class="logo"><i class="fas fa-compass"></i> Gayu's Guidebook</a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#upcoming">Upcoming Trips</a></li>
+      <li><a href="#booking">How to Book</a></li>
+      <li><a href="#faq">FAQs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home" class="hero">
+    <div class="hero-content">
+      <h1>Explore. Connect. Remember.</h1>
+      <p>Small-group trips to the mountains, beaches and hidden corners of India.</p>
+      <a href="#upcoming" class="btn">See Upcoming Trips</a>
+    </div>
+
+    <!-- Photo strip: list each photo ONCE here (add or remove as many as you like). The script at the bottom of the page repeats them automatically. -->
+    <div class="photo-strip">
+      <div class="strip-track">
+        <div class="strip-card"><img src="https://picsum.photos/seed/hero1/600/800" alt="Spiti trip" /></div>
+        <div class="strip-card"><img src="https://picsum.photos/seed/hero2/600/800" alt="Gokarna trip" /></div>
+        <div class="strip-card"><img src="https://picsum.photos/seed/hero3/600/800" alt="Meghalaya trip" /></div>
+        <div class="strip-card"><img src="https://picsum.photos/seed/hero4/600/800" alt="Ladakh trip" /></div>
+        <div class="strip-card"><img src="https://picsum.photos/seed/hero5/600/800" alt="Kerala trip" /></div>
+        <div class="strip-card"><img src="https://picsum.photos/seed/hero6/600/800" alt="Hampi trip" /></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="container about">
+      <img src="assets/images/gayatri.jpg" alt="Gayatri, trip host" class="profile-img" />
+      <div>
+        <h2>About Me</h2>
+        <p>Hi, I'm <strong>Gayatri</strong>! I left home when I was 19, and honestly, life has been quite an adventure since then.</p>
+        <p>For the last 5 years, I’ve been travelling solo, exploring new places, meeting all kinds of people and figuring things out along the way.I’m someone who enjoys slow travel, little mountain villages, local experiences, long bus journeys and sometimes just going somewhere without having everything planned. I’ve also spent time volunteering, which has let me experience places and connect with people in ways that regular travel sometimes doesn’t.</p>
+        <p>A little while ago, I started documenting my travels and creating content. It’s become a lovely way to keep these memories alive and share them with others.</p>
+        <p>I also started hosting group trips and have hosted 6 so far. There’s something really nice about bringing a bunch of strangers together and watching them turn into a group of friends.There’s still so much I want to see, experience and learn. For now, I’m just enjoying the journey and seeing where it takes me!</p>
+        <div class="stats">
+          <div><span>06+</span>Trips hosted</div>
+          <div><span>100+</span>Happy travellers</div>
+          <div><span>05+</span>Destinations</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="upcoming" class="section-alt">
+      <div class="container container-wide">
+        <h2>Upcoming Trips</h2>
+        <div class="trip-list">
+          <article class="trip-card">
+            <div class="trip-media">
+              <img src="https://picsum.photos/seed/spiti/900/1100" alt="Spiti Valley" />
+              <span class="trip-badge">6 seats left</span>
+            </div>
+            <div class="trip-body">
+              <div class="trip-header">
+                <div>
+                  <h3>Into the Nilgiris</h3>
+                  <p class="trip-route"><i class="fas fa-route"></i> Bangalore → Ooty → Coonoor → Bangalore</p>
+                </div>
+                <div class="trip-price">₹10,996<small>per person</small></div>
+              </div>
+
+              <ul class="trip-facts">
+            <li><i class="far fa-calendar"></i><span>Dates</span><strong>03 - 06 Dec 2026</strong></li>
+            <li><i class="far fa-clock"></i><span>Duration</span><strong>3 days / 2 nights</strong></li>
+            <li><i class="fas fa-users"></i><span>Group size</span><strong>16 people</strong></li>
+            <li><i class="fas fa-mountain"></i><span>Difficulty</span><strong>Easy</strong></li>
+            <li><i class="fas fa-map-marker-alt"></i><span>Starts / ends</span><strong>Bangalore</strong></li>
+            <li><i class="fas fa-bed"></i><span>Stay</span><strong>Backpackers Hostel</strong></li>
+              </ul>
+
+              <p class="trip-desc">A scenic road trip through the Nilgiris — rolling hills, tea plantations, charming hill stations and breathtaking views of the Western Ghats.</p>
+
+              <div class="trip-details">
+                <div>
+                  <h4><i class="fas fa-star"></i> Highlights</h4>
+                  <ul>
+                <li>Ooty &amp; Coonoor sightseeing</li>
+                <li>Tea plantation visits</li>
+                <li>Nilgiri Mountain Railway ride</li>
+                <li>Local cuisine experiences</li>
+                <li>Geminid meteor shower viewing</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4><i class="fas fa-check-circle"></i> Included</h4>
+                  <ul class="list-check">
+                <li>Bangalore to Ooty/Coonoor &amp; return travel</li>
+                <li>Local transport in Ooty &amp; Coonoor</li>
+                <li>2 breakfasts &amp; 1 dinner</li>
+                <li>Stay at Backpackers Hostel</li>
+                <li>Nilgiri Mountain Railway tickets</li>
+                <li>Trip host &amp; local driver</li>
+                <li>A curated art &amp; cultural experience</li>
+                <li>Visiting scenic spots in Ooty &amp; Coonoor</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4><i class="fas fa-times-circle"></i> Not included</h4>
+                  <ul class="list-cross">
+                <li>Lunch &amp; snacks</li>
+                <li>Personal expenses</li>
+                <li>Any other activities not mentioned in the inclusions</li>
+                  </ul>
+                </div>
+              </div>
+
+              <details class="itinerary">
+                <summary>View day-wise itinerary</summary>
+                <ol>
+              <li><strong>Day 0:</strong> Overnight drive from Bangalore to Ooty.</li>
+              <li><strong>Day 1:</strong> Mudumalai Tiger Reserve visit, Pykara waterfalls, Pine Forest &amp; Ooty sightseeing.</li>
+              <li><strong>Day 2:</strong> Offbeat Sunrise hike, exploring Coonoor and its surroundings.</li>
+              <li><strong>Day 3:</strong> Art activity, Nilgiri Mountain Railway ride, local market visit, return to Bangalore.</li>
+                </ol>
+              </details>
+
+              <div class="trip-actions">
+                <a href="#booking" class="btn">Book Now</a>
+                <a href="https://wa.me/918871369765?text=Hi%20Gayu!%20I%20have%20a%20question%20about%20the%20Ooty%20trip." class="btn btn-outline" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Ask a question</a>
+              </div>
+            </div>
+          </article>
+          <article class="trip-card">
+            <div class="trip-media">
+              <img src="https://picsum.photos/seed/gokarna/900/1100" alt="Gokarna beaches" />
+              <span class="trip-badge">10 seats left</span>
+            </div>
+            <div class="trip-body">
+              <div class="trip-header">
+                <div>
+                  <h3>Kodaikanal - Slow days in the hills</h3>
+                  <p class="trip-route"><i class="fas fa-route"></i> Bengaluru → Kodaikanal → Bengaluru</p>
+                </div>
+                <div class="trip-price">₹12,550<small>per person, Backpackers Hostel</small></div>
+              </div>
+
+              <ul class="trip-facts">
+            <li><i class="far fa-calendar"></i><span>Dates</span><strong>25 - 27 Dec 2026</strong></li>
+            <li><i class="far fa-clock"></i><span>Duration</span><strong>3 days / 2 nights</strong></li>
+            <li><i class="fas fa-users"></i><span>Group size</span><strong>15 – 20 people</strong></li>
+            <li><i class="fas fa-mountain"></i><span>Difficulty</span><strong>Moderate</strong></li>
+            <li><i class="fas fa-map-marker-alt"></i><span>Starts / ends</span><strong>Bengaluru</strong></li>
+            <li><i class="fas fa-bed"></i><span>Stay</span><strong>Backpackers Hostel</strong></li>
+              </ul>
+
+              <p class="trip-desc">A relaxed mountain getaway with beautiful views, little adventures, riverside moments and plenty of time to unwind with a small group of like-minded travellers.</p>
+
+              <div class="trip-details">
+                <div>
+                  <h4><i class="fas fa-star"></i> Highlights</h4>
+                  <ul>
+                <li>Scenic treks around Kodaikanal</li>
+                <li>Sunset at Coaker's Walk</li>
+                <li>Art and craft activities</li>
+                <li>Relaxing evenings by the lake</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4><i class="fas fa-check-circle"></i> Included</h4>
+                  <ul class="list-check">
+                <li>2 nights stay at Backpackers Hostel</li>
+                <li>2 breakfasts &amp; 1 dinner</li>
+                <li>Travel from Bengaluru to Kodaikanal and back</li>
+                <li>Local transport to all the planned destinations</li>
+                <li>Cycling around Kodai Lake</li>
+                <li>Offbeat sunrise spots</li>
+                <li>Scenic trail walk leading to a private river bath</li>
+                <li>Curated art and craft activities</li>
+                <li>Bonfire nights, board games and storytelling sessions</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4><i class="fas fa-times-circle"></i> Not included</h4>
+                  <ul class="list-cross">
+                <li>All other meals</li>
+                <li>Personal expenses</li>
+                <li>Any additional activities not mentioned in the itinerary</li>
+                  </ul>
+                </div>
+              </div>
+
+              <details class="itinerary">
+                <summary>View day-wise itinerary</summary>
+                <ol>
+              <li><strong>Day 0:</strong> Overnight bus from Bengaluru.</li>
+              <li><strong>Day 1:</strong> Check-in, local sightseeing &amp; sunset at Coaker's Walk, bonfire night.</li>
+              <li><strong>Day 2:</strong> Scenic trek, river bath  &amp; relaxing by the lake.</li>
+              <li><strong>Day 3:</strong> Curated art and craft activities &amp;  Return to Bengaluru.</li>
+                </ol>
+              </details>
+
+              <div class="trip-actions">
+                <a href="#booking" class="btn">Book Now</a>
+                <a href="https://wa.me/918871369765?text=Hi%20Gayu!%20I%20have%20a%20question%20about%20the%20Kodaikanal%20trip." class="btn btn-outline" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Ask a question</a>
+              </div>
+            </div>
+          </article>
+          <article class="trip-card">
+            <div class="trip-media">
+              <img src="https://picsum.photos/seed/meghalaya/900/1100" alt="Meghalaya" />
+              <span class="trip-badge">10 seats left</span>
+            </div>
+            <div class="trip-body">
+              <div class="trip-header">
+                <div>
+                  <h3>Suryanelli, munnar - Into the new year</h3>
+                  <p class="trip-route"><i class="fas fa-route"></i> Bangalore → Suryanelli → Munnar → Bangalore</p>
+                </div>
+                <div class="trip-price">₹14,850<small>per person · Backpackers hostel</small></div>
+              </div>
+
+              <ul class="trip-facts">
+            <li><i class="far fa-calendar"></i><span>Dates</span><strong>31 Dec – 2 Jan 2027</strong></li>
+            <li><i class="far fa-clock"></i><span>Duration</span><strong>3 days / 2 nights</strong></li>
+            <li><i class="fas fa-users"></i><span>Group size</span><strong>16 – 20 people</strong></li>
+            <li><i class="fas fa-mountain"></i><span>Difficulty</span><strong>Moderate</strong></li>
+            <li><i class="fas fa-map-marker-alt"></i><span>Starts / ends</span><strong>Bangalore</strong></li>
+            <li><i class="fas fa-bed"></i><span>Stay</span><strong>Backpackers hostel</strong></li>
+              </ul>
+
+              <p class="trip-desc">End the year in the tea plantations, wake up to the mountains and begin the new year somewhere above the clouds.</p>
+
+              <div class="trip-details">
+                <div>
+                  <h4><i class="fas fa-star"></i> Highlights</h4>
+                  <ul>
+                <li>Stay in a backpackers hostel surrounded by tea plantations</li>
+                <li>Tea plantation walks in Suryanelli</li>
+                <li>Exploring Munnar's scenic landscapes</li>
+                <li>Sunrise at the hills above the clouds</li>
+                <li>Local cultural experiences in Suryanelli</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4><i class="fas fa-check-circle"></i> Included</h4>
+                  <ul class="list-check">
+                <li>2 nights backpackers hostel stay</li>
+                <li>Local transport to all the planned destinations</li>
+                <li>2 Breakfasts &amp; 1 Dinner</li>
+                <li>Kolukkumalai sunrise experience by jeep</li>
+                <li>Boss peak trek - easy, beginner-friendly</li>
+                <li>Curated art activity</li>
+                <li>New year group activities</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4><i class="fas fa-times-circle"></i> Not included</h4>
+                  <ul class="list-cross">
+                <li>All other meals</li>
+                <li>Personal expenses</li>
+                <li>Any additional activities not mentioned in the itinerary</li>
+                  </ul>
+                </div>
+              </div>
+
+              <details class="itinerary">
+                <summary>View day-wise itinerary</summary>
+                <ol>
+              <li><strong>Day 0:</strong> Overnight bus from Bengaluru.</li>
+              <li><strong>Day 1:</strong> Explore Munnar's scenic landscapes, new year celebrations.</li>
+              <li><strong>Day 2:</strong> Tea plantation walks in Suryanelli , kolukkumalai sunrise experience by jeep.</li>
+              <li><strong>Day 3:</strong> Sunrise at the hills above the clouds, local cultural experiences, drive back to Bangalore.</li>
+                </ol>
+              </details>
+              
+              <div class="trip-actions">
+                <a href="#booking" class="btn">Book Now</a>
+                <a href="https://wa.me/918871369765?text=Hi%20Gayu!%20I%20have%20a%20question%20about%20the%20Munnar%20trip." class="btn btn-outline" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Ask a question</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="booking" class="container">
+      <h2>How to Book</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <h3>1. Pick a trip</h3>
+          <p>Choose a trip from the upcoming list above.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><i class="fab fa-whatsapp"></i></div>
+          <h3>2. Message me</h3>
+          <p>Send me a WhatsApp message with the trip name and number of people.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><i class="fas fa-wallet"></i></div>
+          <h3>3. Pay the advance</h3>
+          <p>Pay a 30% advance by UPI or bank transfer to hold your seat.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><i class="fas fa-suitcase-rolling"></i></div>
+          <h3>4. Pack your bags</h3>
+          <p>You'll get the itinerary, packing list and group chat link before the trip.</p>
+        </div>
+      </div>
+      <div class="policy">
+        <h3>Cancellation Policy</h3>
+        <ul>
+          <li>15+ days before the trip: full refund minus ₹500</li>
+          <li>8–15 days before the trip: 50% refund</li>
+          <li>Less than 8 days before the trip: no refund (you can transfer your seat to a friend)</li>
+        </ul>
+      </div>
+      <div class="center">
+        <a href="https://wa.me/918871369765?text=Hi%20Gayu!%20I'd%20like%20to%20book%20a%20trip." class="btn" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Book on WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <section id="faq" class="section-alt">
+      <div class="container faq-container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details name="faq">
+            <summary>I'm travelling solo. Is that okay?</summary>
+            <p>Absolutely! Most of my travellers come solo. You'll be added to the group chat before the trip so you can get to know everyone, and on the trip you'll share a room with another traveller of the same gender.</p>
+          </details>
+          <details name="faq">
+            <summary>What is included in the trip price?</summary>
+            <p>Stays, transport during the trip, the meals mentioned in the itinerary, local guides, entry fees and activities listed for each trip. personal expenses and anything not listed are not included.</p>
+          </details>
+          <details name="faq">
+            <summary>How big are the groups?</summary>
+            <p>Groups are kept small — usually 16 to 20 people — so everyone gets to know each other and the trip stays relaxed.</p>
+          </details>
+          <details name="faq">
+            <summary>Is it safe for women travellers?</summary>
+            <p>Yes. Safety is my top priority. I personally check every stay and route, work only with trusted local partners, and I'm with the group for the entire trip.</p>
+          </details>
+          <details name="faq">
+            <summary>How do I pay, and when is the balance due?</summary>
+            <p>Pay a 50% advance by UPI or bank transfer to confirm your seat. The remaining amount is due before the trip starts.</p>
+          </details>
+          <details name="faq">
+            <summary>What if I need to cancel?</summary>
+            <p>Please see the cancellation policy in the "How to Book" section above. If you can't make it, you can also transfer your seat to a friend at no extra cost.</p>
+          </details>
+          <details name="faq">
+            <summary>What should I pack?</summary>
+            <p>You'll get a detailed packing list for your trip once your booking is confirmed. It covers clothing, medicines, documents and anything special for that destination.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="container">
+      <h2>What Travellers Say</h2>
+      <div class="testimonials">
+        <blockquote>"Everything was taken care of. I went solo and came back with 15 new friends!"<cite>— Disha, Kodaikanal</cite></blockquote>
+        <blockquote>"Great stays, great food and a really fun group. Already booked my next trip."<cite>— Jai, Kochi</cite></blockquote>
+        <blockquote>"Gayu plans everything really well. I felt safe and relaxed the whole time."<cite>— Tanu, Suryanelli</cite></blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-bar">
+      <a href="https://wa.me/918871369765" class="social" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://instagram.com/gayuu.ontherun" class="social" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:gayatri6369@gmail.com" class="social" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="tel:+918871369765" class="social" title="Call"><i class="fas fa-phone"></i></a>
+    </div>
+    <p class="copyright">&copy; 2026 Gayu's Guidebook</p>
+  </footer>
+  <script>
+    // Mobile menu: open/close with the ☰ button, close after tapping a link
+    (function () {
+      var nav = document.querySelector('.navbar');
+      var toggle = nav.querySelector('.nav-toggle');
+      var icon = toggle.querySelector('i');
+
+      function setOpen(open) {
+        nav.classList.toggle('nav-open', open);
+        toggle.setAttribute('aria-expanded', open);
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        icon.className = open ? 'fas fa-times' : 'fas fa-bars';
+      }
+
+      toggle.addEventListener('click', function () {
+        setOpen(!nav.classList.contains('nav-open'));
+      });
+      nav.querySelectorAll('.nav-links a').forEach(function (link) {
+        link.addEventListener('click', function () { setOpen(false); });
+      });
+    })();
+  </script>
+
+  <script>
+    // Repeats the strip photos enough times to fill the screen, then scrolls by exactly
+    // one set of photos per loop so the strip never shows a gap or a jump.
+    (function () {
+      var SPEED = 40; // pixels per second
+
+      function setupStrip(track) {
+        track.classList.remove('is-ready');
+        track.querySelectorAll('[data-clone]').forEach(function (c) { c.remove(); });
+        var originals = Array.prototype.slice.call(track.children);
+        var setWidth = track.getBoundingClientRect().width;
+        if (!setWidth) return;
+
+        var copies = Math.ceil(window.innerWidth / setWidth) + 1;
+        for (var i = 0; i < copies; i++) {
+          originals.forEach(function (card) {
+            var copy = card.cloneNode(true);
+            copy.setAttribute('data-clone', '');
+            copy.setAttribute('aria-hidden', 'true');
+            track.appendChild(copy);
+          });
+        }
+        track.style.setProperty('--shift', -setWidth + 'px');
+        track.style.animationDuration = (setWidth / SPEED) + 's';
+        track.classList.add('is-ready');
+      }
+
+      var tracks = document.querySelectorAll('.strip-track');
+      tracks.forEach(setupStrip);
+
+      var resizeTimer;
+      var lastWidth = window.innerWidth;
+      window.addEventListener('resize', function () {
+        if (window.innerWidth === lastWidth) return;
+        lastWidth = window.innerWidth;
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () { tracks.forEach(setupStrip); }, 200);
+      });
+    })();
+  </script>
+</body>
+</html>
