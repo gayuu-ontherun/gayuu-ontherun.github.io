@@ -376,6 +376,15 @@ h2 {
   object-fit: cover;
 }
 
+/* Add class="focus-bottom" (or focus-top) to a trip image to choose which part stays visible when cropped */
+.trip-media img.focus-bottom {
+  object-position: center bottom;
+}
+
+.trip-media img.focus-top {
+  object-position: center top;
+}
+
 .trip-badge {
   position: absolute;
   top: 0.75rem;
